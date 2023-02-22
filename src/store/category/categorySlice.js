@@ -21,7 +21,7 @@ const categorySlice = createSlice({
 	initialState,
 	reducers: {
 		changeCategory(state, action) {
-			state.activeCategory = action.payload.inexCategory;
+			state.activeCategory = action.payload.indexCategory;
 		}
 	}
 });
