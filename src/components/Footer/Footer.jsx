@@ -63,7 +63,7 @@ const Footer = () => {
 				</div>
 
 			</Container>
-			
+
 		</footer>
 	);
 }
