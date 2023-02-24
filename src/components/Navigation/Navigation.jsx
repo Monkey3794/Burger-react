@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import classNames from 'classnames';
+import { API_URI } from '../../const';
 
 import Container from '../Container/Container';
 import { categoryRequestAsync, changeCategory } from '../../store/category/categorySlice';
