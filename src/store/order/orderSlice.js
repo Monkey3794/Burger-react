@@ -21,13 +21,15 @@ export const localStorageMiddleware = store => next => action => {
 	return nextAction;
 };
 
-export const orderRequestAsync = createAsyncThunk('order/fetch', (_, { getState }) => {
-	const listId = getState().order.orderList.map(item => item.id);
+export const orderRequestAsync = createAsyncThunk(
+	'order/fetch',
+	(_, { getState }) => {
+		const listId = getState().order.orderList.map(item => item.id);
 
-	return fetch(`${API_URI}${POSTFIX}?list=${listId}`)
-		.then(req => req.json())
-		.catch(error => ({ error }));
-});
+		return fetch(`${API_URI}${POSTFIX}?list=${listId}`)
+			.then(req => req.json())
+			.catch(error => ({ error }));
+	});
 
 const orderSlice = createSlice(
 	{
@@ -70,6 +72,10 @@ const orderSlice = createSlice(
 						item => item.id !== action.payload.id
 					);
 				}
+			},
+			clearOrder: (state) => {
+				state.orderList = [];
+				state.orderGoods = [];
 			}
 		},
 		extraReducers: builder => {
@@ -103,5 +109,5 @@ const orderSlice = createSlice(
 	}
 );
 
-export const { addProduct, removeProduct } = orderSlice.actions;
+export const { addProduct, removeProduct, clearOrder } = orderSlice.actions;
 export default orderSlice.reducer;

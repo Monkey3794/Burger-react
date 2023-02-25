@@ -17,7 +17,12 @@ const CatalogProduct = ({ item }) => {
 			</p>
 
 			<h3 className={style.title}>
-				<button className={style.detail} onClick={() => dispatch(openModal())}>{item.title}</button>
+				<button
+					className={style.detail}
+					onClick={() => dispatch(openModal())}
+				>
+					{item.title}
+				</button>
 			</h3>
 
 			<p className={style.weight}>{item.weight}г</p>
