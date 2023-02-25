@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { API_URI } from '../../const';
+import { openModal } from '../../store/modalDelivery/modalDeliverySlice';
 import { addProduct } from '../../store/order/orderSlice';
 
 import style from './CatalogProduct.module.css';
@@ -16,7 +17,7 @@ const CatalogProduct = ({ item }) => {
 			</p>
 
 			<h3 className={style.title}>
-				<button className={style.detail}>{item.title}</button>
+				<button className={style.detail} onClick={() => dispatch(openModal())}>{item.title}</button>
 			</h3>
 
 			<p className={style.weight}>{item.weight}г</p>
